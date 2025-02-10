@@ -1,0 +1,127 @@
+/* About Us Container */
+.about-us-container {
+    padding: 80px 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+    margin: 30px;
+    border-radius: 12px; /* Optional: Adds rounded corners for a softer look */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Adds a soft shadow around the container */
+}
+  
+  .about-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #2c3e50;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* About Cards Section */
+  .about-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+
+  }
+  
+  /* Individual Card */
+  .aboutcard  {
+    width: 350px !important;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    height: 300px;
+  
+    animation: fadeInUp 1s ease-in-out forwards;
+    background: linear-gradient(145deg, #f0f0f0, #dcdcdc);
+    border: 1px solid #ddd;
+  }
+  
+  .card-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #2980b9;
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+  }
+  
+  .card-description {
+    font-size: 20px;
+    color: #7f8c8d;
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    margin-top: 10px;
+  }
+  
+  .services-list {
+    padding-top: 20px;
+  }
+  
+  .service {
+    margin-bottom: 15px;
+  }
+  
+  .service strong {
+    font-size: 18px;
+    color: #2980b9;
+    font-weight: 600;
+  }
+  
+  .service p {
+    font-size: 16px;
+    color: #7f8c8d;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Hover Effect */
+  .card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card:active {
+    transform: translateY(5px);
+  }
+  
+  .card-title {
+    transition: color 0.3s ease;
+  }
+  
+  .card:hover .card-title {
+    color: #3498db;
+  }
+  
+  /* Animation for Fade-In Effect */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+  }
+  

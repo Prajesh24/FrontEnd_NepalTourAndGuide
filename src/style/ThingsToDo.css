@@ -1,0 +1,136 @@
+.things-to-do {
+    margin-top: 30px;
+  }
+  
+  .height {
+    height: 700px;
+
+  }
+  
+  .carousel-item {
+    width: 100%; /* Ensure each carousel item takes full width */
+  }
+  
+  .first-slide {
+    background-image: url('/Users/prajesh/Desktop/new/nepal-tour-and-guide/src/assets/adventure.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .second-slide {
+    background-image: url('/Users/prajesh/Desktop/new/nepal-tour-and-guide/src/assets/stan-tuladhar-yc8bxSNhgmA-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .third-slide {
+    background-image: url('/Users/prajesh/Desktop/new/nepal-tour-and-guide/src/assets/indian-rhinoceros-beautiful-nature-looking-habitat-one-horned-rhino-endangered-species-biggest-kind-rhinoceros-earth.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .fourth-slide {
+    background-image: url('/Users/prajesh/Desktop/new/nepal-tour-and-guide/src/assets/Untitled design.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .title-style,
+  .culture-style,
+  .nature-style,
+  .food-style {
+    position: relative;
+    top: 60px;
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .adventure-list,
+  .culture-list,
+  .nature-list,
+  .food-list {
+    color: white;
+    font-size: 35px;
+    margin: 130px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* Ensure items stay on one line */
+    gap: 20px;
+  }
+  
+  .second-list {
+    margin-left: 50px;
+  }
+  
+  .food-list .second-list {
+    margin-left: 0;
+  }
+  
+  @media (max-width: 1024px) {
+    .height {
+      height: 500px;
+    }
+  
+    .title-style,
+    .culture-style,
+    .nature-style,
+    .food-style {
+      font-size: 50px;
+    }
+  
+    .adventure-list,
+    .culture-list,
+    .nature-list,
+    .food-list {
+      font-size: 25px;
+      margin-top: 80px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .height {
+      height: 400px;
+    }
+  
+    .title-style,
+    .culture-style,
+    .nature-style,
+    .food-style {
+      font-size: 40px;
+    }
+  
+    .adventure-list,
+    .culture-list,
+    .nature-list,
+    .food-list {
+      font-size: 20px;
+      margin-top: 60px;
+      flex-direction: column; /* Stack vertically on small screens */
+      align-items: center;
+      gap: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .height {
+      height: 300px;
+    }
+  
+    .title-style,
+    .culture-style,
+    .nature-style,
+    .food-style {
+      font-size: 30px;
+    }
+  
+    .adventure-list,
+    .culture-list,
+    .nature-list,
+    .food-list {
+      font-size: 18px;
+      margin-top: 40px;
+    }
+  }
+  
