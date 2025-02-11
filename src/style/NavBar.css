@@ -1,0 +1,103 @@
+/* Style for the whole navbar */
+
+.navbar-custom {
+  background-color: white;
+  padding: 15px 30px;
+}
+
+/* Logo styles */
+.logo-container {
+  max-width: 150px; /* Limit logo size */
+}
+
+.navbar-collapse {
+  padding-left: 200px;
+}
+
+/* Navigation link styles */
+.nav-link {
+  color: #ecf0f1; /* Light text color */
+  font-size: 18px !important;
+  font-weight: 500;
+  margin: 0 15px;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Underline animation */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background-color: #3498db;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover {
+  color: #3498db; /* Blue color on hover */
+  transform: scale(1.05);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Book button style */
+.book-btn {
+  background-color: #3498db; /* Blue button */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100px;
+  height: 50px;
+  margin-left: 300px;
+  border-radius: 30px !important;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth button hover effect */
+}
+
+.book-btn:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+  transform: scale(1.1);
+}
+
+/* Responsive mobile menu */
+@media (max-width: 991px) {
+  .navbar-custom {
+      padding: 10px;
+  }
+
+  .nav-link {
+      font-size: 14px;
+  }
+
+  .book-btn {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-custom {
+      padding: 8px;
+  }
+
+  .logo-container {
+      max-width: 120px;
+  }
+
+  .nav-link {
+      font-size: 14px;
+      margin: 5px;
+  }
+
+  .book-btn {
+      font-size: 14px;
+      padding: 8px 16px;
+      margin-top: 10px;
+  }
+}
