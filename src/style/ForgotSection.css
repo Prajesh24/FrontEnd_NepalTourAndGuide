@@ -1,0 +1,112 @@
+.forgot-password-container {
+    margin: 50px auto;
+    padding: 20px 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.forgot-password-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.reset-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f66d4a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+    background-color: #feb47b;
+}
+
+.message {
+    text-align: center;
+    margin-top: 10px;
+    color: #666;
+}
+
+.login-text {
+    text-decoration: none;
+    color: #ff7e5f;
+}
+
+.login-text:hover {
+    color: #fa964a;
+    text-decoration: underline;
+}
+@keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .forgot-password-container {
+        width: 90%;
+        padding: 15px 20px;
+    }
+    
+    .form-group input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .reset-button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .forgot-password-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .forgot-password-container h2 {
+        font-size: 20px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .reset-button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
