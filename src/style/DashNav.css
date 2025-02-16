@@ -1,0 +1,102 @@
+/* Navbar Container */
+.nav-container {
+  /* background: linear-gradient(135deg, rgba(34, 193, 195, 0.7), rgba(253, 187, 45, 0.7)); */
+  /* backdrop-filter: blur(12px); */
+  padding: 18px 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease-in-out;
+  
+}
+
+/* Logo & Title Container */
+.banner-scroll-container {
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 20px;
+  animation: slideIn 1s ease-out;
+}
+
+/* Logo Styling */
+.banner-scroll-image {
+  width: 90px; /* Bigger logo */
+  height: auto;
+  border-radius: 15px;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, rotate 0.4s;
+  animation: pulseGlow 2s infinite alternate; 
+  margin-left: 370px;
+}
+
+/* Logo Hover Animation */
+.banner-scroll-image:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+/* Navbar Title */
+.banner-scroll-text {
+  color:#2c3e50 ;
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 6px rgba(72, 166, 105, 0.3);
+  transition: transform 0.4s ease-in-out, letter-spacing 0.3s;
+  animation: fadeIn 1.2s ease-in-out;
+ 
+}
+
+/* Title Hover Effect */
+.banner-scroll-text:hover {
+  transform: translateY(-4px);
+  letter-spacing: 4px;
+}
+
+/* Navbar Responsiveness */
+@media screen and (max-width: 768px) {
+  .banner-scroll-container {
+    justify-content: center;
+  }
+
+  .banner-scroll-image {
+    width: 70px; /* Adjust logo for smaller screens */
+  }
+
+  .banner-scroll-text {
+    font-size: 26px;
+  }
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glow Pulse Animation */
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  }
+  to {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* Smooth Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
