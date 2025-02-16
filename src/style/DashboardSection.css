@@ -1,0 +1,182 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Main Container */
+  .pill-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .sidebar-container{
+    width: 270px;
+  }
+  .main-content {
+    margin-top: -190px;
+    margin-left: 300px;
+    width: 1100px;
+    padding: 10px;
+    height: 100%;
+
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds box shadow */
+  }
+  
+  
+  /* Selection and Tab Styles */
+  .selection-container {
+    display: flex;
+  }
+  
+  .navbar {
+    margin-bottom: 20px;
+  }
+  
+  .selection {
+    font-weight: bold;
+    color: #007bff;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  .selection:hover {
+    background-color: #e9ecef;
+  }
+  
+  /* Package Tab */
+  .package-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 250px;
+    margin-bottom: 20px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  /* Customize Package Tab */
+  .customize-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-section {
+    
+    background-color: #fff;
+    padding: 30px;
+    margin-top: -10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    height: 500px !important;
+  }
+  
+  .form-section label {
+    font-weight: bold;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-select,
+  .form-control {
+    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+  }
+  
+  .form-check {
+    display: inline-block;
+    margin-right: 15px;
+  }
+  
+  .form-check input {
+    margin-right: 5px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Booking Tab */
+  .booking-container h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .booking-container p {
+    font-size: 16px;
+    color: #6c757d;
+  }
+  
+  /* Modal Styles */
+  .modal-content {
+    border-radius: 8px;
+  }
+  
+  .modal-header {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .modal-title {
+    font-weight: bold;
+  }
+  
+  .modal-footer button {
+    border-radius: 5px;
+  }
+  
+  .modal-footer .btn-secondary {
+    background-color: #6c757d;
+  }
+  
+  .modal-footer .btn-danger {
+    background-color: #dc3545;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .selection-container {
+      flex-direction: column;
+    }
+  
+    .card-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .card {
+      width: 100%;
+    }
+  }
+  
