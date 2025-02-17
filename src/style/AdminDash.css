@@ -1,0 +1,122 @@
+.pill-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+ 
+}
+
+/* .col-sm-3{
+  position: relative;
+  left: -120px;
+
+} */
+
+/* .main-content{
+  margin-top: -240px;
+} */
+.nav-link{
+  font-size: 18px !important;
+}
+/* .col-sm-9{
+  width: 900px;
+} */
+.selection-container {
+  margin-top: 20px;
+  margin-left: -130px;
+}
+
+.selection {
+  color: #333;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.selection:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.selection.active {
+  background-color: #007bff !important;
+  color: #fff !important;
+}
+
+.form-check{
+  width: 200px;
+  
+}
+.form-check-label{
+  margin-top: 4px;
+  
+}
+
+.create-container,
+.booking-container
+.delete-container
+.update-container {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-section-admin {
+  max-width: 1100px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  
+
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.mt-3 img {
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  width: 100%;
+  font-weight: bold;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.modal-footer button {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .pill-container {
+    padding: 10px;
+  }
+
+  .form-section {
+    max-width: 100%;
+  }
+
+  .package-container {
+    padding: 15px;
+  }
+}
