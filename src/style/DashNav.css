@@ -1,69 +1,86 @@
 /* Navbar Container */
 .nav-container {
-  /* background: linear-gradient(135deg, rgba(34, 193, 195, 0.7), rgba(253, 187, 45, 0.7)); */
-  /* backdrop-filter: blur(12px); */
-  padding: 18px 0;
+  padding: 12px 0;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.4s ease-in-out;
-  
 }
 
 /* Logo & Title Container */
 .banner-scroll-container {
-  display: flex !important;
-  align-items: center !important;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
   animation: slideIn 1s ease-out;
 }
 
 /* Logo Styling */
 .banner-scroll-image {
-  width: 90px; /* Bigger logo */
+  width: 80px;
   height: auto;
   border-radius: 15px;
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, rotate 0.4s;
   animation: pulseGlow 2s infinite alternate; 
-  margin-left: 370px;
-}
-
-/* Logo Hover Animation */
-.banner-scroll-image:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }
 
 /* Navbar Title */
 .banner-scroll-text {
-  color:#2c3e50 ;
-  font-size: 32px;
+  color: #2c3e50;
+  font-size: 30px;
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-shadow: 3px 3px 6px rgba(72, 166, 105, 0.3);
   transition: transform 0.4s ease-in-out, letter-spacing 0.3s;
   animation: fadeIn 1.2s ease-in-out;
- 
-}
-
-/* Title Hover Effect */
-.banner-scroll-text:hover {
-  transform: translateY(-4px);
-  letter-spacing: 4px;
 }
 
 /* Navbar Responsiveness */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .banner-scroll-container {
-    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
   }
 
   .banner-scroll-image {
-    width: 70px; /* Adjust logo for smaller screens */
+    width: 70px;
   }
 
   .banner-scroll-text {
-    font-size: 26px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner-scroll-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .banner-scroll-image {
+    width: 60px;
+  }
+
+  .banner-scroll-text {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .banner-scroll-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-scroll-image {
+    width: 50px;
+  }
+
+  .banner-scroll-text {
+    font-size: 18px;
   }
 }
 

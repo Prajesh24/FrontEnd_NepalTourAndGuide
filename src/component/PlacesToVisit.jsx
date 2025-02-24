@@ -191,7 +191,7 @@ const PlacesToVisitSection = () => {
         {selectedCategory &&
           categories[selectedCategory].map((item, index) => (
             <Card className="card" style={{ width: "18rem" }} key={index}>
-              <Card.Img variant="top" src={item.img} />
+              <Card.Img className="card-picture" variant="top" src={item.img} />
               <Card.Body>
                 <Card.Title>{item.title}</Card.Title>
                 <Card.Text>{item.text}</Card.Text>

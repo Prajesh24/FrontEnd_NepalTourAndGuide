@@ -1,0 +1,55 @@
+.booking-cards
+.customize-handle-container{
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap; 
+    height: 100%;
+    padding-left: 80px;
+    
+}
+
+.custom-packages
+{
+    display:flex;
+    flex-wrap: wrap; 
+    margin-left: 80px;
+}
+
+.booking-card{
+    height: 400px !important;
+    width: 400px !important;
+    margin: 10px;
+
+}
+.btn-complete{
+    margin-top: 210px;
+    background-color: rgb(39, 152, 69);
+    border: none;
+}
+.btn-complete:hover{
+ 
+    background-color: rgb(20, 209, 71);
+}
+.btn-decline{
+    margin-top: 5px;
+    border: none;
+    background-color: red;
+}
+.btn-decline:hover{
+
+    background-color: rgb(255, 61, 61);
+}
+.booking-card-traveler{
+    height: 320px !important;
+    width: 400px;
+    margin-left: 30px;
+}
+.btn-cancel{
+    width: fit-content;
+    margin-top: 180px;
+    margin-left: 220px;
+}
+.customize-handle-card{
+    width: 400px;
+    height: 400px !important;
+}

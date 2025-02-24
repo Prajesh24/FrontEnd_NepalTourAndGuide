@@ -20,32 +20,43 @@ const Login = () => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-        const response = await login({ username: formData.username, password: formData.password });
-
-        if (response.status === 200) {
-            const { token, role } = response.data; // Extract token and role
-            localStorage.setItem("token", token); // Store token for authentication
-
-            setMessage("Login successful! Redirecting...");
-
-            // Redirect based on role
-            setTimeout(() => {
-                if (role === "admin") {
-                    navigate("/admindash");
-                } else {
-                    navigate("/dashboard");
-                }
-            }, 2000);
-        }
-    } catch (error) {
-        setMessage(error.response?.data?.error);
-    }
-};
+      const response = await login({ username: formData.username, password: formData.password });
+  
+      if (response && response.data) {
+          const { token, role, userId } = response.data.data || response.data;
+  
+          localStorage.setItem("token", token);
+          localStorage.setItem("userId", userId);
+          localStorage.setItem("role", role);
+  
+          if (!role) {
+              setMessage("Error: Role is undefined.");
+              return;
+          }
+  
+          setMessage("Login successful!");
+  
+          setTimeout(() => {
+              if (role === "admin") {
+                  navigate("/admindashboard");
+              } else if (role === "traveler") {
+                  navigate("/dashboard");
+              } else {
+                  setMessage("Role not recognized.");
+              }
+          }, 1000);
+      } else {
+          setMessage("Invalid response from the server.");
+      }
+  } catch (error) {
+      console.log("Login error:", error);
+      setMessage(error.response?.data?.error || "Unexpected error");
+  }
+  };  
 
 
   return (

@@ -3,51 +3,48 @@ import { Nav, Modal, Button } from "react-bootstrap";
 import "../style/DashboardSection.css";
 
 const DashSideBar = ({ setActiveSection }) => {
-  // State for showing the logout modal
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
-  // Function to handle logout confirmation
   const handleLogout = () => {
-    console.log("Logout button clicked");
     setShowLogoutModal(true);
   };
 
-  // Function to confirm logout
   const confirmLogout = () => {
-    console.log("Logout confirmed");
     setShowLogoutModal(false);
-    // Clear session data (if any)
-    // localStorage.removeItem('user');
-    // Redirect to the login page after logging out
-    window.location.href = "/login";  // Redirect to login
+    window.location.href = "/login";
   };
 
   return (
-    <div className="sidebar-container">
-      <Nav variant="pills" className="flex-column">
-        <Nav.Item>
-          <Nav.Link onClick={() => setActiveSection('packages')} className="selection">
-            Packages
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link onClick={() => setActiveSection('customizePackage')} className="selection">
-            Customize Package
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link onClick={() => setActiveSection('bookings')} className="selection">
-            Bookings
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link onClick={handleLogout} className="selection logout">
-            Logout
-          </Nav.Link>
-        </Nav.Item>
-      </Nav>
+    <>
+      <button className="sidebar-toggle" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+        {isSidebarOpen ? "≡" : "☰"}
+      </button>
+      <div className={`sidebar-container ${isSidebarOpen ? "open" : "closed"}`}>
+        <Nav variant="pills" className="flex-column">
+          <Nav.Item>
+            <Nav.Link onClick={() => setActiveSection('packages')} className="selection">
+              Packages
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link onClick={() => setActiveSection('customizePackage')} className="selection">
+              Customize Package
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link onClick={() => setActiveSection('bookings')} className="selection">
+              Bookings
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link onClick={handleLogout} className="selection logout">
+              Logout
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+      </div>
 
-      {/* Logout Confirmation Modal */}
       <Modal show={showLogoutModal} onHide={() => setShowLogoutModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Confirm Logout</Modal.Title>
@@ -62,7 +59,7 @@ const DashSideBar = ({ setActiveSection }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>
+    </>
   );
 };
 

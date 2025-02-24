@@ -46,6 +46,11 @@ const AdminSideBar = ({ setActiveSection }) => {
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
+          <Nav.Link onClick={() => setActiveSection('customize')} className="selection">
+           Handle Customized Package
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
           <Nav.Link onClick={handleLogout} className="selection logout">
             Logout
           </Nav.Link>

@@ -1,0 +1,80 @@
+.card-design{
+    width: 500px;
+    height: 705px !important;
+}
+
+.title{
+    font-size: 27px !important;
+    color: #2c3e50 !important;
+    margin-bottom: 2px !important;
+    padding-left: 10px;
+
+}
+.des{
+    height: max-content;
+    font-size: 16px;
+    font-weight: bold;
+    color: #6e8093;
+    padding-left: 10px;
+}
+.places-activities{
+    display: flex;
+    height: 110px;
+
+}
+.text{
+    padding-left: 10px;
+    margin-top: 4px !important;
+    font-weight: bolder;
+    font-size: 18px;
+    color:  #2c3e50;
+}
+.list{
+    font-weight: bold;
+    font-size: 16px;
+    color: #6e8093;
+}
+
+.places{
+    width: 245px;
+}
+.activities{
+    margin-left: 56px;
+}
+.trav-dur{
+    display: flex;
+    height: 60px;
+
+
+    
+}
+.duration{
+    margin-left: 110px;
+}
+.include-budget{
+    display: flex;
+    height: 90px;
+}
+.budget{
+    margin-left: 213px;
+}
+.delete-btn{
+    background-color:#f66d4a !important;
+    border: none !important;
+}
+.booking-btn{
+    background-color: #527ba4!important;
+    border: none !important;
+}
+.booking-btn:hover{
+    background-color:#93bbe6 !important;
+    border: none !important;
+}
+.update-btn{
+    background-color: #527ba4!important;
+    border: none !important;
+}
+.update-btn:hover{
+    background-color:#93bbe6 !important;
+    border: none !important;
+}
