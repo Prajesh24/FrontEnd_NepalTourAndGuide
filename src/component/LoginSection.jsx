@@ -24,39 +24,39 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await login({ username: formData.username, password: formData.password });
-  
-      if (response && response.data) {
-          const { token, role, userId } = response.data.data || response.data;
-  
-          localStorage.setItem("token", token);
-          localStorage.setItem("userId", userId);
-          localStorage.setItem("role", role);
-  
-          if (!role) {
-              setMessage("Error: Role is undefined.");
-              return;
-          }
-  
-          setMessage("Login successful!");
-  
-          setTimeout(() => {
-              if (role === "admin") {
-                  navigate("/admindashboard");
-              } else if (role === "traveler") {
-                  navigate("/dashboard");
-              } else {
-                  setMessage("Role not recognized.");
-              }
-          }, 1000);
-      } else {
-          setMessage("Invalid response from the server.");
-      }
-  } catch (error) {
-      console.log("Login error:", error);
-      setMessage(error.response?.data?.error || "Unexpected error");
-  }
-  };  
+        const response = await login({ username: formData.username, password: formData.password });
+
+        if (response && response.data) {
+            const { token, role, userId } = response.data.data || response.data;
+
+            localStorage.setItem("token", token);
+            localStorage.setItem("userId", userId);
+            localStorage.setItem("role", role);
+
+            if (!role) {
+                alert("Error: Role is undefined.");
+                return;
+            }
+
+            alert("Login successful!");
+
+            setTimeout(() => {
+                if (role === "admin") {
+                    navigate("/admindashboard");
+                } else if (role === "traveler") {
+                    navigate("/dashboard");
+                } else {
+                    alert("Role not recognized.");
+                }
+            }, 1000);
+        } else {
+            alert("Invalid response from the server.");
+        }
+    } catch (error) {
+        console.log("Login error:", error);
+        alert(error.response?.data?.error || "Unexpected error");
+    }
+};
 
 
   return (

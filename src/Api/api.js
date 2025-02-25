@@ -131,23 +131,6 @@ export const createCustomizePackage = async (packageData) => {
       throw error;
     }
   };
-
-
-
-// export const updateBookingStatus = async (bookingId, status) => {
-//     try {
-//         const response = await API.put(`/api/booking/${bookingId}`, { status });
-//         if (response.status === 200) {
-//             return response.data;
-//         } else {
-//             throw new Error('Failed to update booking status');
-//         }
-//     } catch (error) {
-//         console.error('Error updating booking status:', error);
-//         throw error;
-//     }
-// };
-
   export const getAllCustomPackages = async () => {
     try {
       const response = await API.get('/customize-package/getall');
@@ -157,19 +140,5 @@ export const createCustomizePackage = async (packageData) => {
       throw error;
     }
   };
-  
-// export const getCustomizePackageByUser = (userId) => API.get(`/customize-package/${userId}`);
-
-// export const updateCustomizePackage = async (id, customizeData) => {
-//     try {
-//         const response = await API.put(`/api/customize-package/${id}`, customizeData);
-//         return response.data;
-//     } catch (error) {
-//         console.error('Error updating customize package:', error.response?.data?.message || error.message);
-//         throw new Error(error.response?.data?.message || "Update failed.");
-//     }
-// };
-
-// export const deleteCustomizePackage = async (id) => API.delete(`/api/customize-package/${id}`);
 
 export default API;

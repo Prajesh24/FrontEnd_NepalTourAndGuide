@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { createCustomizePackage } from './../Api/api.js'; // Import API function
 import './../style/AdminDash.css';
 
@@ -27,8 +27,7 @@ const CustomizePackage = () => {
   const [includeHotel, setIncludeHotel] = useState(false);
   const [includeFood, setIncludeFood] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
-  const [customPackage, setCustomPackage] = useState(null); // State to hold custom package details
+  const [customPackage, setCustomPackage] = useState(null);
 
   const handlePlaceChange = (event) => {
     const { value, checked } = event.target;
@@ -46,22 +45,23 @@ const CustomizePackage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true);
-    setMessage("");
-  
+
     const userId = localStorage.getItem('userId');
     if (!userId) {
-      setMessage("User ID is missing. Please log in again.");
-      setLoading(false);
+      alert("User ID is missing. Please log in again.");
       return;
     }
-  
+
     if (!region || selectedPlaces.length === 0 || selectedActivities.length === 0 || !numberOfTravelers || !duration || !budget) {
-      setMessage("Please fill in all required fields.");
-      setLoading(false);
+      alert("Please fill in all required fields.");
       return;
     }
-  
+
+    const isConfirmed = window.confirm("Are you sure you want to submit this package request?");
+    if (!isConfirmed) return;
+
+    setLoading(true);
+
     const packageData = {
       userId,
       region,
@@ -73,26 +73,25 @@ const CustomizePackage = () => {
       includeHotel,
       includeFood,
     };
-  
+
     try {
       const response = await createCustomizePackage(packageData);
       if (response.status === 201) {
-        setMessage("Package request submitted successfully!");
-        setCustomPackage(response.data); // Store response data, including status
+        alert("Package request submitted successfully!");
+        setCustomPackage(response.data);
       } else {
-        setMessage("Failed to submit package request.");
+        alert("Failed to submit package request.");
       }
     } catch (error) {
-      setMessage(error.response?.data?.message || "An error occurred while submitting the package.");
+      alert(error.response?.data?.message || "An error occurred while submitting the package.");
       console.error(error);
     } finally {
       setLoading(false);
     }
   };
-  
 
   return (
-    <>
+    <div className="trav-customize-section">
       <h1>Create Your Own Package</h1>
       <div className="form-section-admin">
         <Form onSubmit={handleSubmit}>
@@ -202,13 +201,9 @@ const CustomizePackage = () => {
           <Button variant="primary" type="submit" className="mt-3" disabled={loading}>
             {loading ? "Submitting..." : "Submit Package Request"}
           </Button>
-
-          {message && <p className="mt-3">{message}</p>}
         </Form>
       </div>
-
-
-    </>
+    </div>
   );
 };
 

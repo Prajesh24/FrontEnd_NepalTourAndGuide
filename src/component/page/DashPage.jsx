@@ -12,7 +12,7 @@ const DashPage = () => {
       <DashSideBar setActiveSection={setActiveSection} /> {/* Pass setActiveSection to the sidebar */}
       
       {/* Main content area */}
-      <div className="main-content">
+      <div className="main-content1">
         {activeSection === 'packages' && <PackageSelection />}
         {activeSection === 'customizePackage' && <CustomizePackage />}
         {activeSection === 'bookings' && <BookingSection />}

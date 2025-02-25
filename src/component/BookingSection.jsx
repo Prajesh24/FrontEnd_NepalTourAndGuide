@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Card, Button, Alert } from "react-bootstrap";
-import { getAllBookings, updateBookingStatus, getAllCustomPackages, updateCustomPackageStatus } from "../Api/api"; // Ensure getAllCustomPackages is imported
+import {
+  getAllBookings,
+  updateBookingStatus,
+  getAllCustomPackages,
+  updateCustomPackageStatus,
+} from "../Api/api"; // Ensure getAllCustomPackages is imported
 import "./../style/BookingCard.css";
 
 const BookingSection = () => {
@@ -94,6 +99,36 @@ const BookingSection = () => {
     }
   };
 
+  // Function to handle canceling a booking with confirmation
+  const handleCancelBooking = async (bookingId) => {
+    const confirmCancel = window.confirm(
+      "Are you sure you want to cancel this booking?"
+    );
+    if (!confirmCancel) return; // If the user clicks 'No', do nothing
+
+    try {
+      await updateBookingStatus(bookingId, "cancelled");
+      fetchBookings(); // Refresh bookings after update
+    } catch (error) {
+      console.error("Error updating booking status:", error);
+    }
+  };
+
+  // Function to handle status change for customized packages with confirmation
+  const handleCancelCustomPackage = async (id) => {
+    const confirmCancel = window.confirm(
+      "Are you sure you want to cancel this customized package?"
+    );
+    if (!confirmCancel) return; // If the user clicks 'No', do nothing
+
+    try {
+      await updateCustomPackageStatus(id, "cancelled");
+      fetchCustomPackages(); // Refresh customized packages after update
+    } catch (error) {
+      console.error("Error updating status:", error);
+    }
+  };
+
   return (
     <div className="booking-section-container">
       {message && <Alert variant="info">{message}</Alert>}
@@ -143,10 +178,11 @@ const BookingSection = () => {
                   </span>
                 </Card.Text>
                 {/* Cancel button for bookings */}
-                <Button className="btn-cancel"
+                <Button
+                  className="btn-cancel"
                   variant="danger"
-                  onClick={() => handleStatusUpdate(booking.bookingId, "cancelled")}
-                  disabled={booking.bookingStatus === "cancelled"} // Disable if already canceled
+                  onClick={() => handleCancelBooking(booking.bookingId)}
+                  disabled={booking.bookingStatus === "cancelled"}
                 >
                   Cancel Booking
                 </Button>
@@ -170,13 +206,25 @@ const BookingSection = () => {
                 <Card.Text>
                   <strong>Created By:</strong> {packageData.User.username}
                   <br />
-                  <strong>Places:</strong> {packageData.selectedPlaces.join(', ')}<br />
-                  <strong>Activities:</strong> {packageData.selectedActivities.join(', ')}<br />
-                  <strong>Number of Travelers:</strong> {packageData.numberOfTravelers}<br />
-                  <strong>Duration (days):</strong> {packageData.duration}<br />
-                  <strong>Hotel Included:</strong> {packageData.includeHotel ? 'Yes' : 'No'}<br />
-                  <strong>Food Included:</strong> {packageData.includeFood ? 'Yes' : 'No'}<br />
-                  <strong>Budget:</strong> Rs {packageData.budget}<br />
+                  <strong>Places:</strong>{" "}
+                  {packageData.selectedPlaces.join(", ")}
+                  <br />
+                  <strong>Activities:</strong>{" "}
+                  {packageData.selectedActivities.join(", ")}
+                  <br />
+                  <strong>Number of Travelers:</strong>{" "}
+                  {packageData.numberOfTravelers}
+                  <br />
+                  <strong>Duration (days):</strong> {packageData.duration}
+                  <br />
+                  <strong>Hotel Included:</strong>{" "}
+                  {packageData.includeHotel ? "Yes" : "No"}
+                  <br />
+                  <strong>Food Included:</strong>{" "}
+                  {packageData.includeFood ? "Yes" : "No"}
+                  <br />
+                  <strong>Budget:</strong> Rs {packageData.budget}
+                  <br />
                   <strong>Status:</strong>
                   <span
                     style={{
@@ -195,11 +243,11 @@ const BookingSection = () => {
                   </span>
                   <br />
                 </Card.Text>
-                <Button 
-                    className="btn-cancel"
-                  variant="danger" 
-                  onClick={() => handleStatusChange(packageData.id, 'cancelled')}
-                  disabled={packageData.status === 'cancelled'}
+                <Button
+                  className="btn-cancel"
+                  variant="danger"
+                  onClick={() => handleCancelCustomPackage(packageData.id)}
+                  disabled={packageData.status === "cancelled"}
                 >
                   Cancel Booking
                 </Button>

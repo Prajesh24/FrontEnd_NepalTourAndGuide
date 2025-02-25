@@ -21,24 +21,30 @@ const PackageSection = () => {
       console.error("Error fetching packages:", error);
     }
   };
-
   const handleBooking = async (packageId) => {
-
     const userId = localStorage.getItem('userId');
     const bookingData = {
       userId,
       packageId,
       bookingStatus: 'Pending',
     };
-    console.log('Booking data being sent:', bookingData);
+  
+    // Show confirmation dialog
+    const confirmBooking = window.confirm("Are you sure you want to book this package?");
+    if (!confirmBooking) {
+      return; // Stop if the user cancels
+    }
   
     try {
       const response = await createBooking(bookingData);
       console.log('Booking created:', response);
+      alert('Booking confirmed successfully!');
     } catch (error) {
       console.error('Error creating booking:', error.response || error);
+      alert('Failed to book the package. Please try again.');
     }
   };
+  
 
   return (
     <div className="package-container">

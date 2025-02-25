@@ -1,4 +1,4 @@
-.booking-cards
+.booking-cards,
 .customize-handle-container{
     width: 100%;
     display:flex;
@@ -15,7 +15,8 @@
     margin-left: 80px;
 }
 
-.booking-card{
+.booking-card,
+.customize-handle-card{
     height: 400px !important;
     width: 400px !important;
     margin: 10px;

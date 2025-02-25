@@ -21,11 +21,19 @@ const AdminBooking = () => {
   };
 
   const handleStatusUpdate = async (bookingId, status) => {
-    try {
-      await updateBookingStatus(bookingId, status);
-      fetchBookings(); // Refresh bookings after update
-    } catch (error) {
-      console.error("Error updating booking status:", error);
+    const confirmation = window.confirm(
+      `Are you sure you want to ${status} this booking?`
+    );
+
+    if (confirmation) {
+      try {
+        await updateBookingStatus(bookingId, status);
+        fetchBookings(); // Refresh bookings after update
+        alert(`Booking successfully ${status}.`);
+      } catch (error) {
+        console.error("Error updating booking status:", error);
+        alert("Failed to update booking status. Please try again.");
+      }
     }
   };
 
@@ -83,7 +91,8 @@ const AdminBooking = () => {
                   variant="success"
                   onClick={() =>
                     handleStatusUpdate(booking.bookingId, "confirmed")
-                  } // Lowercase
+                  }
+                  disabled={booking.bookingStatus === "confirmed"}
                 >
                   Confirm
                 </Button>{" "}
@@ -92,7 +101,8 @@ const AdminBooking = () => {
                   variant="danger"
                   onClick={() =>
                     handleStatusUpdate(booking.bookingId, "declined")
-                  } // Lowercase
+                  }
+                  disabled={booking.bookingStatus === "declined"}
                 >
                   Decline
                 </Button>

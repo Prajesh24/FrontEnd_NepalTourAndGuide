@@ -66,15 +66,6 @@ const CreateSection = () => {
     // Log the form data
     for (let [key, value] of formData.entries()) {
       console.log(key, value);
-
-
-      // const newPackage = {
-      //   region,
-      //   description,
-      //   image: preview,
-      // };
-  
-      // addPackage(newPackage);
     }
   
     try {
